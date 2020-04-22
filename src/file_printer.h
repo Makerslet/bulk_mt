@@ -18,7 +18,7 @@ public:
      * @param timestamp - временная метка
      * @param out - текст
      */
-    void update(uint64_t timestamp,const std::string& out) override;
+    void update(task_sptr cmds) override;
 
 private:
     /**

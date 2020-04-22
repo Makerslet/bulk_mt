@@ -39,7 +39,7 @@ void command_handler::handle_open_scope()
             auto& description = commands_iter->second;
             if(!description.second.empty())
             {
-                notify(description.first, prepare_str(description.second));
+                notify(description.first, description.second);
                 description.second.clear();
             }
         }
@@ -84,7 +84,7 @@ void command_handler::handle_close_scope()
         }
 
         if(!commands.empty())
-            notify(timestamp, prepare_str(commands));
+            notify(timestamp, commands);
     }
 
     --_current_scope_level;
@@ -99,7 +99,7 @@ void command_handler::handle_finish()
         {
             auto& description = commands_iter->second;
             if(!description.second.empty())
-                notify(description.first, prepare_str(description.second));
+                notify(description.first, description.second);
         }
     }
 }
@@ -119,20 +119,10 @@ void command_handler::handle_text_command(uint64_t timestamp, const std::string&
     {
         if(description.second.size() == _bulk_length)
         {
-            notify(description.first, prepare_str(description.second));
+            notify(description.first, description.second);
             description.second.clear();
         }
     }
-}
-
-std::string command_handler::prepare_str(const scope_commands& commands)
-{
-    std::string result("bulk: ");
-    for(const auto& command : commands)
-        result += command + ", ";
-
-    result.erase(result.length() - 2, 2);
-    return result;
 }
 
 
@@ -141,12 +131,14 @@ void command_handler::subscribe(std::shared_ptr<base_subscriber> subscriber)
     _subscribers.push_back(subscriber);
 }
 
-void command_handler::notify(uint64_t timestamp,const std::string& string)
+void command_handler::notify(uint64_t timestamp,const scope_commands& string)
 {
+    auto task_ptr = std::make_shared<task>(timestamp, string);
+
     for(auto subscriber : _subscribers)
     {
         auto shared_subscriber = subscriber.lock();
         if(shared_subscriber)
-            shared_subscriber->update(timestamp, string);
+            shared_subscriber->update(task_ptr);
     }
 }

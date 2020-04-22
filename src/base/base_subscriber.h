@@ -3,11 +3,24 @@
 
 #include <vector>
 #include <string>
+#include <memory>
+
+/**
+ * @brief Описание задачи для вывода
+ */
+struct task {
+    task(uint64_t ts, const std::vector<std::string>& cmds) :
+        timestamp(ts), commands(cmds){}
+
+    const uint64_t timestamp;
+    const std::vector<std::string> commands;
+};
 
 /**
  * @brief Интерфейс подписчика
  */
 struct base_subscriber {
+    using task_sptr = std::shared_ptr<task>;
     /**
      * @brief Деструктор подписчика
      */
@@ -17,7 +30,7 @@ struct base_subscriber {
      * @timestamp - временная метка
      * @str - информационная строка
      */
-    virtual void update(uint64_t timestamp, const std::string& str) = 0;
+    virtual void update(task_sptr) = 0;
 };
 
 #endif // BASE_SUBSCRIBER_H

@@ -5,9 +5,9 @@
 file_printer::file_printer()
 {}
 
-void file_printer::update(uint64_t timestamp,const std::string& out)
+void file_printer::update(task_sptr)
 {
-    write(timestamp, out);
+    //write(timestamp, cmds);
 }
 
 void file_printer::write(uint64_t timestamp, const std::string& out)

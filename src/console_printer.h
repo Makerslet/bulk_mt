@@ -17,7 +17,7 @@ public:
      * @brief Обработка команда от publisher'а
      * @param str - текст
      */
-    void update(uint64_t, const std::string& str) override;
+    void update(task_sptr task) override;
 };
 
 #endif // CONSOLE_PRINTER_H

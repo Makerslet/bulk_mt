@@ -45,7 +45,7 @@ private:
      * @param timestamp - временная метка первой команды
      * @param string - информационная строка
      */
-    void notify(uint64_t timestamp, const std::string& string);
+    void notify(uint64_t timestamp, const scope_commands &string);
     /**
      * @brief Метод обработки команды открытия scope
      */

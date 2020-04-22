@@ -4,7 +4,6 @@
 console_printer::console_printer()
 {}
 
-void console_printer::update(uint64_t, const std::string &out)
+void console_printer::update(task_sptr)
 {
-    std::cout << out << std::endl;
 }
