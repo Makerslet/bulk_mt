@@ -3,6 +3,7 @@
 #include "subscriber.h"
 #include "args_parser.h"
 #include "subscriber_handler_creator.h"
+#include "statistic_formatter.h"
 
 #include <iostream>
 
@@ -44,6 +45,13 @@ int main (int argc, char** argv)
 
     } while(cmd_type != command_type::finish);
 
+    std::cout << statistic_formatter::format(cmd_handler.statistic()) << std::endl;
+    std::cout << statistic_formatter::format("console thread",
+            console_out_subscriber->get_worker_context(0)) << std::endl;
+    std::cout << statistic_formatter::format("file thread 1",
+            file_out_subscriber->get_worker_context(0)) << std::endl;
+    std::cout << statistic_formatter::format("file thread 2",
+            file_out_subscriber->get_worker_context(1)) << std::endl;
     return 0;
 }
 

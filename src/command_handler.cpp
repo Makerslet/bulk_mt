@@ -5,6 +5,11 @@ command_handler::command_handler(std::size_t bulk_length) :
     _bulk_length(bulk_length), _current_scope_level(0)
 {}
 
+const command_handler_statistic& command_handler::statistic() const
+{
+    return _statistic;
+}
+
 void command_handler::add_command(std::unique_ptr<base_command>&& command)
 {
     switch (command->type()) {
@@ -31,6 +36,8 @@ void command_handler::add_command(std::unique_ptr<base_command>&& command)
 
 void command_handler::handle_open_scope()
 {
+    ++_statistic.num_lines;
+
     if(_current_scope_level == 0)
     {
         auto commands_iter = _commands.find(_current_scope_level);
@@ -39,6 +46,7 @@ void command_handler::handle_open_scope()
             auto& description = commands_iter->second;
             if(!description.second.empty())
             {
+                ++_statistic.num_blocks;
                 notify(description.first, description.second);
                 description.second.clear();
             }
@@ -58,6 +66,8 @@ void command_handler::handle_open_scope()
 
 void command_handler::handle_close_scope()
 {
+    ++_statistic.num_lines;
+
     if(_current_scope_level == 0)
     {
         std::string error = "error close scope";
@@ -84,7 +94,10 @@ void command_handler::handle_close_scope()
         }
 
         if(!commands.empty())
+        {
+            ++_statistic.num_blocks;
             notify(timestamp, commands);
+        }
     }
 
     --_current_scope_level;
@@ -99,13 +112,19 @@ void command_handler::handle_finish()
         {
             auto& description = commands_iter->second;
             if(!description.second.empty())
+            {
+                ++_statistic.num_blocks;
                 notify(description.first, description.second);
+            }
         }
     }
 }
 
 void command_handler::handle_text_command(uint64_t timestamp, const std::string& str)
 {
+    ++_statistic.num_lines;
+    ++_statistic.num_commands;
+
     if(_commands.find(_current_scope_level) == _commands.end())
         _commands[_current_scope_level] = commands_description();
 
@@ -119,6 +138,7 @@ void command_handler::handle_text_command(uint64_t timestamp, const std::string&
     {
         if(description.second.size() == _bulk_length)
         {
+            ++_statistic.num_blocks;
             notify(description.first, description.second);
             description.second.clear();
         }

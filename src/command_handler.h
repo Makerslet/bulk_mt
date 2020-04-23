@@ -7,6 +7,13 @@
 #include <memory>
 #include <map>
 
+struct command_handler_statistic
+{
+    size_t num_lines = 0;
+    size_t num_blocks = 0;
+    size_t num_commands = 0;
+};
+
 /**
  * @brief Класс обработки команд
  */
@@ -27,6 +34,8 @@ public:
      * @param bulk_length - размер пакета команд
      */
     command_handler(std::size_t bulk_length);
+
+    const command_handler_statistic& statistic() const;
     /**
      * @brief Метод запуска команды в обработку
      * @param command - команда
@@ -76,6 +85,8 @@ private:
 
     std::vector<std::weak_ptr<base_subscriber>> _subscribers;
     std::map<std::size_t, commands_description> _commands;
+
+    command_handler_statistic _statistic;
 };
 
 #endif // COMMAND_HANDLER_H

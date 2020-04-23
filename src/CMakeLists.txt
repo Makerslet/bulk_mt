@@ -5,6 +5,7 @@ add_executable(${TARGET}
     main.cpp
     util.h util.cpp
     args_parser.h args_parser.cpp
+    statistic_formatter.h statistic_formatter.cpp
     base/base_command.h
     base/base_publisher.h
     base/base_subscriber.h

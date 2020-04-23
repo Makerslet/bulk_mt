@@ -19,7 +19,6 @@ struct worker_context
 
     std::atomic<size_t> num_blocks;
     std::atomic<size_t> num_commands;
-    const std::string name;
 };
 
 using context_sptr = std::shared_ptr<worker_context>;
