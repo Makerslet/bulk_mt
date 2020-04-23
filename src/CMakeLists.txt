@@ -3,16 +3,18 @@ set($TARGET bulk_mt)
 
 add_executable(${TARGET}
     main.cpp
+    util.h util.cpp
+    args_parser.h args_parser.cpp
     base/base_command.h
     base/base_publisher.h
     base/base_subscriber.h
+    base/base_workers_keeper.h
     commands.h
+    commands_queue.h
     commands_factory.h commands_factory.cpp
     command_handler.h command_handler.cpp
-    console_printer.h console_printer.cpp
-    file_printer.h file_printer.cpp
-    args_parser.h args_parser.cpp
-    util.h util.cpp)
+    subscriber.h subscriber.cpp
+    subscriber_handler_creator.h subscriber_handler_creator.cpp)
 
 set_target_properties(${TARGET} PROPERTIES
     CXX_STANDARD 17
@@ -36,6 +38,7 @@ endif()
 
 target_link_libraries(${TARGET}
     ${Boost_LIBRARIES}
+    Threads::Threads
 )
 
 # бинарник кладем в каталог bin

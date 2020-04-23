@@ -1,8 +1,8 @@
 #include "commands_factory.h"
 #include "command_handler.h"
-#include "console_printer.h"
-#include "file_printer.h"
+#include "subscriber.h"
 #include "args_parser.h"
+#include "subscriber_handler_creator.h"
 
 #include <iostream>
 
@@ -27,11 +27,13 @@ int main (int argc, char** argv)
     command_type cmd_type;
     command_handler cmd_handler(result.value());
 
-    auto console_out = std::make_shared<console_printer>();
-    auto file_out = std::make_shared<file_printer>();
+    auto console_out_subscriber = std::make_shared<subscriber>(1,
+            subscriber_handler_creator::create_console_handler());
+    auto file_out_subscriber = std::make_shared<subscriber>(2,
+            subscriber_handler_creator::create_file_handler());
 
-    cmd_handler.subscribe(console_out);
-    cmd_handler.subscribe(file_out);
+    cmd_handler.subscribe(console_out_subscriber);
+    cmd_handler.subscribe(file_out_subscriber);
 
     std::string argument;
     do {

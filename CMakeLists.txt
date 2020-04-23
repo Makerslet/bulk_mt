@@ -11,6 +11,7 @@ else()
 endif()
 
 find_package(Boost COMPONENTS program_options REQUIRED)
+find_package(Threads REQUIRED)
 
 # включаем тесты
 enable_testing()

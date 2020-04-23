@@ -4,23 +4,26 @@
 #include <vector>
 #include <string>
 #include <memory>
+#include <functional>
 
 /**
  * @brief Описание задачи для вывода
  */
-struct task {
-    task(uint64_t ts, const std::vector<std::string>& cmds) :
+struct subscriber_task {
+    subscriber_task(uint64_t ts, const std::vector<std::string>& cmds) :
         timestamp(ts), commands(cmds){}
 
     const uint64_t timestamp;
     const std::vector<std::string> commands;
 };
 
+using task_sptr = std::shared_ptr<subscriber_task>;
+using subscriber_task_handler = std::function<void(task_sptr)>;
+
 /**
  * @brief Интерфейс подписчика
  */
 struct base_subscriber {
-    using task_sptr = std::shared_ptr<task>;
     /**
      * @brief Деструктор подписчика
      */

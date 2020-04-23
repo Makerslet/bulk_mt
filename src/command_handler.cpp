@@ -133,7 +133,7 @@ void command_handler::subscribe(std::shared_ptr<base_subscriber> subscriber)
 
 void command_handler::notify(uint64_t timestamp,const scope_commands& string)
 {
-    auto task_ptr = std::make_shared<task>(timestamp, string);
+    auto task_ptr = std::make_shared<subscriber_task>(timestamp, string);
 
     for(auto subscriber : _subscribers)
     {
