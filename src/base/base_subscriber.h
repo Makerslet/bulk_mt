@@ -18,7 +18,7 @@ struct subscriber_task {
 };
 
 using task_sptr = std::shared_ptr<subscriber_task>;
-using subscriber_task_handler = std::function<void(task_sptr)>;
+using subscriber_task_handler = std::function<void(task_sptr, const std::string&)>;
 
 /**
  * @brief Интерфейс подписчика

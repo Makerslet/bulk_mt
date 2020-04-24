@@ -1,6 +1,6 @@
 #include "subscriber.h"
 
-#include <fstream>
+#include <sstream>
 
 subscriber::subscriber(size_t num_workers, subscriber_task_handler task) :
     _num_workers(num_workers),
@@ -11,7 +11,7 @@ subscriber::subscriber(size_t num_workers, subscriber_task_handler task) :
 
     for(size_t i = 0; i < _num_workers; ++i)
     {
-        auto context = std::make_shared<worker_context>();
+        auto context = std::make_shared<worker_context>("th" + std::to_string(i));
         worker_task t = create_worker_handler(context, _cmds_queue, task);
 
         _workers.emplace_back(std::make_pair(context, std::thread(t)));
@@ -50,7 +50,10 @@ worker_task subscriber::create_worker_handler(context_sptr context, queue_sptr q
             context->num_blocks += 1;
             context->num_commands += command->commands.size();
 
-            task(command);
+            std::stringstream ss;
+            ss << command->timestamp << context->name << context->num_blocks;
+
+            task(command, ss.str());
         }
     };
 }

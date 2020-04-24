@@ -11,7 +11,8 @@ using worker_task = std::function<void()>;
 
 struct worker_context
 {
-    worker_context()
+    worker_context(const std::string& name) :
+        name(name)
     {
         num_blocks.store(0);
         num_commands.store(0);
@@ -19,6 +20,7 @@ struct worker_context
 
     std::atomic<size_t> num_blocks;
     std::atomic<size_t> num_commands;
+    const std::string name;
 };
 
 using context_sptr = std::shared_ptr<worker_context>;
