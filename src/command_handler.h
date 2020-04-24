@@ -54,7 +54,7 @@ private:
      * @param timestamp - временная метка первой команды
      * @param string - информационная строка
      */
-    void notify(uint64_t timestamp, const scope_commands &string);
+    void notify(uint64_t timestamp, const scope_commands &cmds);
     /**
      * @brief Метод обработки команды открытия scope
      */
@@ -84,7 +84,7 @@ private:
     std::size_t _current_scope_level;
 
     std::vector<std::weak_ptr<base_subscriber>> _subscribers;
-    std::map<std::size_t, commands_description> _commands;
+    std::vector<commands_description> _commands;
 
     command_handler_statistic _statistic;
 };
