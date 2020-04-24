@@ -7,10 +7,23 @@
 #include <memory>
 #include <map>
 
+/**
+ * @brief Класс статистики обработки команд
+ * comand_handler'ом
+ */
 struct command_handler_statistic
 {
+    /**
+     * @brief Количество строк
+     */
     size_t num_lines = 0;
+    /**
+     * @brief Количество блоков
+     */
     size_t num_blocks = 0;
+    /**
+     * @brief Количество команд
+     */
     size_t num_commands = 0;
 };
 
@@ -73,11 +86,6 @@ private:
      * @param str - текст команды
      */
     void handle_text_command(uint64_t timestamp, const std::string& str);
-    /**
-     * @brief Метод объединение текста команд
-     * @param commands - объъединяемые команды
-     */
-    std::string prepare_str(const scope_commands& commands);
 
 private:
     std::size_t _bulk_length;

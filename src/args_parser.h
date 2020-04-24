@@ -9,11 +9,23 @@
 
 namespace bpo = boost::program_options;
 
+/**
+ * @brief Класс парсинга аргументов командной строки
+ */
 class args_parser
 {
 public:
+    /**
+     * @brief Конструктор
+     */
     args_parser();
-    std::optional<size_t> parse(int argc, char**argv);
+    /**
+     * @brief Метод парсинга
+     * @arg argc - количество аргументов
+     * @arg argv - массив строк аргументов
+     * @return Размер блока команд
+     */
+    std::optional<size_t> parse(int argc, char** argv);
 
 private:
     bpo::options_description _description;
