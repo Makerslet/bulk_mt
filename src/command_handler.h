@@ -48,7 +48,12 @@ public:
      */
     command_handler(std::size_t bulk_length);
 
+    /**
+     * @brief Метод полчения полной статистики
+     * @return Статистика обработки
+     */
     const command_handler_statistic& statistic() const;
+
     /**
      * @brief Метод запуска команды в обработку
      * @param command - команда
@@ -56,10 +61,9 @@ public:
     void add_command(std::unique_ptr<base_command>&& command);
 
     /**
-     * @brief Метод подписки на обновлениия
-     * @param subscriber - подписчик
+     * @brief Метод обработки завершения ввода
      */
-    void subscribe(std::shared_ptr<base_subscriber> subscriber) override;
+    void stop_handling();
 
 private:
     /**
@@ -68,18 +72,17 @@ private:
      * @param string - информационная строка
      */
     void notify(uint64_t timestamp, const scope_commands &cmds);
+
     /**
      * @brief Метод обработки команды открытия scope
      */
     void handle_open_scope();
+
     /**
      * @brief Метод обработки команды закрытия scope
      */
     void handle_close_scope();
-    /**
-     * @brief Метод обработки команды завершения ввода
-     */
-    void handle_finish();
+
     /**
      * @brief Метод обработки текстовой команды
      * @param timestamp - временная метка
@@ -91,7 +94,6 @@ private:
     std::size_t _bulk_length;
     std::size_t _current_scope_level;
 
-    std::vector<std::weak_ptr<base_subscriber>> _subscribers;
     std::vector<commands_description> _commands;
 
     command_handler_statistic _statistic;

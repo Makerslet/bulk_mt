@@ -30,6 +30,7 @@ public:
      * @arg subscriber_task - обработчик, который будут выполнять worker'ы
      */
     subscriber(size_t num_workers, subscriber_task_handler subscriber_task);
+
     /**
      * @brief Обработка команды от publisher'а
      * @param cmds - набор комманд для обработки

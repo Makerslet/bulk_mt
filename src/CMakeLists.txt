@@ -15,7 +15,8 @@ add_executable(${TARGET}
     commands_factory.h commands_factory.cpp
     command_handler.h command_handler.cpp
     subscriber.h subscriber.cpp
-    subscriber_handler_creator.h subscriber_handler_creator.cpp)
+    subscriber_handler_creator.h subscriber_handler_creator.cpp
+    signals_handler.h signals_handler.cpp)
 
 set_target_properties(${TARGET} PROPERTIES
     CXX_STANDARD 17

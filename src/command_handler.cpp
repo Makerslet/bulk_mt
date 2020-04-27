@@ -24,10 +24,6 @@ void command_handler::add_command(std::unique_ptr<base_command>&& command)
             handle_close_scope();
             break;
         }
-        case command_type::finish : {
-            handle_finish();
-            break;
-        }
         case command_type::text: {
             handle_text_command(command->timestamp(),
                                 (dynamic_cast<text_command*>(command.get()))->info());
@@ -71,8 +67,10 @@ void command_handler::handle_close_scope()
 
     if(_current_scope_level == 0)
     {
-        std::string error = "error close scope";
-        throw std::logic_error(error);
+        throw std::logic_error(
+                    "You can't use close scope operator out of scope. "
+                    "This command will be ignored."
+                    );
     }
     else if(_current_scope_level == 1)
     {
@@ -88,7 +86,7 @@ void command_handler::handle_close_scope()
     --_current_scope_level;
 }
 
-void command_handler::handle_finish()
+void command_handler::stop_handling()
 {
     if(_current_scope_level == 0)
     {
@@ -117,12 +115,6 @@ void command_handler::handle_text_command(uint64_t timestamp, const std::string&
             commands.second.clear();
         }
     }
-}
-
-
-void command_handler::subscribe(std::shared_ptr<base_subscriber> subscriber)
-{
-    _subscribers.push_back(subscriber);
 }
 
 void command_handler::notify(uint64_t timestamp,const scope_commands& cmds)

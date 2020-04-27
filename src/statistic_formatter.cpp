@@ -1,12 +1,11 @@
 #include "statistic_formatter.h"
 #include <sstream>
 
-std::string statistic_formatter::format(const std::string& thread_name,
-                      context_sptr stat)
+std::string statistic_formatter::format(context_sptr stat)
 {
     std::stringstream ss;
 
-    ss << thread_name << " statistic: "
+    ss << stat->name << " statistic: "
               << stat->num_commands << " commands, "
               << stat->num_blocks << " blocks";
     return ss.str();
