@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['finish_5fcommand',['finish_command',['../structfinish__command.html',1,'']]]
+  ['open_5fscope_5fcommand',['open_scope_command',['../structopen__scope__command.html',1,'']]]
 ];

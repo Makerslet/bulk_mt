@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['info',['info',['../structtext__command.html#aa8c434b9bf6e6f3e5ac9e85c96cca054',1,'text_command']]]
+  ['get_5fworker_5fcontext',['get_worker_context',['../classbase__workers__keeper.html#a1787da731b005b69a78bb4c1f477fa64',1,'base_workers_keeper::get_worker_context()'],['../classsubscriber.html#a945cd167228dac28a211682e72b44dda',1,'subscriber::get_worker_context()']]]
 ];

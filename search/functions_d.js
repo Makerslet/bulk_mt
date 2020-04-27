@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['update',['update',['../structbase__subscriber.html#af455da395bfa15f4a3028ba5a8a3cddc',1,'base_subscriber::update()'],['../classsubscriber.html#a74739fcd30f9140a78033aca73cd9601',1,'subscriber::update()']]]
+  ['text_5fcommand',['text_command',['../structtext__command.html#a5cdc6f6880a53b4ff6bbded2b871e665',1,'text_command']]],
+  ['timestamp',['timestamp',['../structbase__command.html#aa1d2b50f70754eb3c1414cc2d9a980e0',1,'base_command']]],
+  ['type',['type',['../structbase__command.html#af81ac77bfdc5721c0cd19e12f42b8942',1,'base_command']]]
 ];

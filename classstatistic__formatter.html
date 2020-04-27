@@ -75,9 +75,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7448fc9412b19cdbf40908d6db5ef8af"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstatistic__formatter.html#a7448fc9412b19cdbf40908d6db5ef8af">format</a> (const std::string &amp;thread_name, <a class="el" href="base__workers__keeper_8h.html#a6b13a9695d4160af8b13ca577ed86b3c">context_sptr</a> stat)</td></tr>
-<tr class="memdesc:a7448fc9412b19cdbf40908d6db5ef8af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Преобразование статистики работы worker'а в строку  <a href="#a7448fc9412b19cdbf40908d6db5ef8af">More...</a><br /></td></tr>
-<tr class="separator:a7448fc9412b19cdbf40908d6db5ef8af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab85f3ceb92a22e34f5ed057a109a08ae"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstatistic__formatter.html#ab85f3ceb92a22e34f5ed057a109a08ae">format</a> (<a class="el" href="base__workers__keeper_8h.html#a6b13a9695d4160af8b13ca577ed86b3c">context_sptr</a> stat)</td></tr>
+<tr class="memdesc:ab85f3ceb92a22e34f5ed057a109a08ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Преобразование статистики работы worker'а в строку  <a href="#ab85f3ceb92a22e34f5ed057a109a08ae">More...</a><br /></td></tr>
+<tr class="separator:ab85f3ceb92a22e34f5ed057a109a08ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade6e634b07c58d808412b68343f280dc"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstatistic__formatter.html#ade6e634b07c58d808412b68343f280dc">format</a> (const <a class="el" href="structcommand__handler__statistic.html">command_handler_statistic</a> &amp;stat)</td></tr>
 <tr class="memdesc:ade6e634b07c58d808412b68343f280dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Преобразование статистики работы <a class="el" href="classcommand__handler.html" title="Класс обработки команд ">command_handler</a>'а в строку  <a href="#ade6e634b07c58d808412b68343f280dc">More...</a><br /></td></tr>
 <tr class="separator:ade6e634b07c58d808412b68343f280dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -85,8 +85,8 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Класс осуществляющий форматирование статистики обработки комманда </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7448fc9412b19cdbf40908d6db5ef8af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7448fc9412b19cdbf40908d6db5ef8af">&#9670;&nbsp;</a></span>format() <span class="overload">[1/2]</span></h2>
+<a id="ab85f3ceb92a22e34f5ed057a109a08ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab85f3ceb92a22e34f5ed057a109a08ae">&#9670;&nbsp;</a></span>format() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -97,19 +97,9 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">std::string statistic_formatter::format </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>thread_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype"><a class="el" href="base__workers__keeper_8h.html#a6b13a9695d4160af8b13ca577ed86b3c">context_sptr</a>&#160;</td>
-          <td class="paramname"><em>stat</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>stat</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -121,7 +111,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Преобразование статистики работы worker'а в строку </p>
 <ul>
-<li>thread_name - имя потока worker'а </li>
 <li>stat - контекст worker'а <dl class="section return"><dt>Returns</dt><dd>Строковое представление статистики </dd></dl>
 </li>
 </ul>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['commands',['commands',['../structsubscriber__task.html#ab678006595845e0c321d699798dd868c',1,'subscriber_task']]]
+  ['_5fsubscribers',['_subscribers',['../structbase__publisher.html#a098f682f2f9801d96cb42d57af1ea207',1,'base_publisher']]]
 ];

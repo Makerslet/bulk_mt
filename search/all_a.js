@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['queue_5fmt',['queue_mt',['../classqueue__mt.html',1,'queue_mt&lt; T &gt;'],['../classqueue__mt.html#aa2af5a50000ea536fc24dbd0a4628740',1,'queue_mt::queue_mt()']]]
+  ['open_5fscope',['open_scope',['../base__command_8h.html#a71e4cb55459005154ad8360914a8e1f4aaa60dc19c4e3e48546175263740e4323',1,'base_command.h']]],
+  ['open_5fscope_5fcommand',['open_scope_command',['../structopen__scope__command.html',1,'open_scope_command'],['../structopen__scope__command.html#a7b70bddbea07370e66a8a11a41c7dda7',1,'open_scope_command::open_scope_command()']]]
 ];

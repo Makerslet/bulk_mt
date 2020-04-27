@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['get_5fworker_5fcontext',['get_worker_context',['../classbase__workers__keeper.html#a1787da731b005b69a78bb4c1f477fa64',1,'base_workers_keeper::get_worker_context()'],['../classsubscriber.html#a945cd167228dac28a211682e72b44dda',1,'subscriber::get_worker_context()']]]
+  ['format',['format',['../classstatistic__formatter.html#ab85f3ceb92a22e34f5ed057a109a08ae',1,'statistic_formatter::format(context_sptr stat)'],['../classstatistic__formatter.html#ade6e634b07c58d808412b68343f280dc',1,'statistic_formatter::format(const command_handler_statistic &amp;stat)']]]
 ];
