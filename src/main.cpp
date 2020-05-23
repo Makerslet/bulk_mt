@@ -52,6 +52,8 @@ int main (int argc, char** argv)
     }
 
     cmd_handler->stop_handling();
+    file_out_subscriber->stop_workers();
+    console_out_subscriber->stop_workers();
 
     std::cout << statistic_formatter::format(cmd_handler->statistic()) << std::endl;
     std::cout << statistic_formatter::format(console_out_subscriber->get_worker_context(0)) << std::endl;

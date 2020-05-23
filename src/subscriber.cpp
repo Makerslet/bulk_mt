@@ -15,7 +15,6 @@ subscriber::subscriber(size_t num_workers, subscriber_task_handler task) :
         worker_task t = create_worker_handler(context, _cmds_queue, task);
 
         _workers.emplace_back(std::make_pair(context, std::thread(t)));
-        _workers[i].second.detach();
     }
 }
 
@@ -40,13 +39,21 @@ context_sptr subscriber::get_worker_context(size_t worker_index)
     return context;
 }
 
+void subscriber::stop_workers()
+{
+    _cmds_queue->shutdown();
+
+    for(auto& worker_description : _workers)
+        worker_description.second.join();
+}
+
 worker_task subscriber::create_worker_handler(context_sptr context, queue_sptr queue,
                                subscriber_task_handler task)
 {
     return [context, queue, task]() {
-        while(true)
+
+        auto action_lambda = [context, queue, task](task_sptr command)
         {
-            task_sptr command = queue->pop();
             context->num_blocks += 1;
             context->num_commands += command->commands.size();
 
@@ -54,6 +61,19 @@ worker_task subscriber::create_worker_handler(context_sptr context, queue_sptr q
             ss << command->timestamp << context->name << context->num_blocks;
 
             task(command, ss.str());
+        };
+
+        task_sptr command;
+        while(queue->is_running())
+        {
+            bool result = queue->pop(command);
+
+            if(result)
+                action_lambda(command);
         }
+
+        // дочитываем очередь до опустошения
+        while(queue->pop(command))
+            action_lambda(command);
     };
 }

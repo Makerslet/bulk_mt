@@ -9,14 +9,22 @@ void signals_handler::set_state(std::shared_ptr<command_handler> handler,
     _handler = handler;
     _workers_keepers = wk;
 }
+
 void signals_handler::handle_sigint(int)
 {
     auto handler_sptr = _handler.lock();
     if(handler_sptr)
-    {
         handler_sptr->stop_handling();
-        std::cout << statistic_formatter::format(handler_sptr->statistic()) << std::endl;
+
+    for(auto worker : _workers_keepers)
+    {
+        auto worker_sptr = worker.lock();
+        if(worker_sptr)
+            worker_sptr->stop_workers();
     }
+
+    if(handler_sptr)
+        std::cout << statistic_formatter::format(handler_sptr->statistic()) << std::endl;
 
     for(auto worker : _workers_keepers)
     {

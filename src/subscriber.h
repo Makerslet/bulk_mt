@@ -50,6 +50,8 @@ public:
      */
     context_sptr get_worker_context(size_t worker_index) override;
 
+    void stop_workers() override;
+
 private:
     /**
      * @brief Метод записи в файл
