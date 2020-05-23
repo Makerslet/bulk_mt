@@ -81,9 +81,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4a210c4ca892728d02ee947c54345087"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqueue__mt.html#a4a210c4ca892728d02ee947c54345087">push</a> (const T &amp;value)</td></tr>
 <tr class="memdesc:a4a210c4ca892728d02ee947c54345087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Положить элемен в очередь  <a href="#a4a210c4ca892728d02ee947c54345087">More...</a><br /></td></tr>
 <tr class="separator:a4a210c4ca892728d02ee947c54345087"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaeeee1ef2192f4034d791cfdb979a3f"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqueue__mt.html#abaeeee1ef2192f4034d791cfdb979a3f">pop</a> ()</td></tr>
-<tr class="memdesc:abaeeee1ef2192f4034d791cfdb979a3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Извлечь элемент из очереди  <a href="#abaeeee1ef2192f4034d791cfdb979a3f">More...</a><br /></td></tr>
-<tr class="separator:abaeeee1ef2192f4034d791cfdb979a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93ff3675304af1403c80872e55c8d203"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqueue__mt.html#a93ff3675304af1403c80872e55c8d203">pop</a> (T &amp;value)</td></tr>
+<tr class="memdesc:a93ff3675304af1403c80872e55c8d203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Извлечь элемент из очереди  <a href="#a93ff3675304af1403c80872e55c8d203">More...</a><br /></td></tr>
+<tr class="separator:a93ff3675304af1403c80872e55c8d203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9198f19233813e85c1f8af8bdff8668d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqueue__mt.html#a9198f19233813e85c1f8af8bdff8668d">shutdown</a> ()</td></tr>
+<tr class="memdesc:a9198f19233813e85c1f8af8bdff8668d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Остановить работу очереди  <a href="#a9198f19233813e85c1f8af8bdff8668d">More...</a><br /></td></tr>
+<tr class="separator:a9198f19233813e85c1f8af8bdff8668d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b760ac51810aad6462a08a822b40498"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqueue__mt.html#a1b760ac51810aad6462a08a822b40498">is_running</a> ()</td></tr>
+<tr class="memdesc:a1b760ac51810aad6462a08a822b40498"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить запущена ли очередь  <a href="#a1b760ac51810aad6462a08a822b40498">More...</a><br /></td></tr>
+<tr class="separator:a1b760ac51810aad6462a08a822b40498"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -121,8 +127,8 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="abaeeee1ef2192f4034d791cfdb979a3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abaeeee1ef2192f4034d791cfdb979a3f">&#9670;&nbsp;</a></span>pop()</h2>
+<a id="a1b760ac51810aad6462a08a822b40498"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b760ac51810aad6462a08a822b40498">&#9670;&nbsp;</a></span>is_running()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -133,9 +139,39 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="classqueue__mt.html">queue_mt</a>&lt; T &gt;::pop </td>
+          <td class="memname">bool <a class="el" href="classqueue__mt.html">queue_mt</a>&lt; T &gt;::is_running </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверить запущена ли очередь </p>
+
+</div>
+</div>
+<a id="a93ff3675304af1403c80872e55c8d203"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93ff3675304af1403c80872e55c8d203">&#9670;&nbsp;</a></span>pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classqueue__mt.html">queue_mt</a>&lt; T &gt;::pop </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -177,6 +213,35 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Положить элемен в очередь </p>
+
+</div>
+</div>
+<a id="a9198f19233813e85c1f8af8bdff8668d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9198f19233813e85c1f8af8bdff8668d">&#9670;&nbsp;</a></span>shutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classqueue__mt.html">queue_mt</a>&lt; T &gt;::shutdown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Остановить работу очереди </p>
 
 </div>
 </div>
